@@ -1,5 +1,6 @@
 from WMCore.Configuration import Configuration
-from CRABClient.UserUtilities import config, getUsernameFromSiteDB
+from CRABClient.UserUtilities import config#, getUsernameFromSiteDB
+#import CRABClient.UserUtilities
 
 config = Configuration()
 
@@ -29,19 +30,21 @@ if ('Run2016' in 'DATASETNAME'):
   config.Data.splitting = 'EventAwareLumiBased'
   config.Data.unitsPerJob = 100000
 else:
-  config.Data.splitting = 'FileBased'
-  if   (('GluGlu' in 'DATASETNAME') and ('MCFM701' in 'DATASETNAME') and (not 'tau' in 'DATASETNAME')): config.Data.unitsPerJob = 1
-  elif (('GluGlu' in 'DATASETNAME') and ('MCFM701' in 'DATASETNAME') and ('tau' in 'DATASETNAME')): config.Data.unitsPerJob = 1
-  elif (('GluGlu' in 'DATASETNAME') and (not 'MCFM701' in 'DATASETNAME')): config.Data.unitsPerJob = 1
-  elif ('HToZZ' in 'DATASETNAME'): config.Data.unitsPerJob = 1
-  elif ('ZZ' in 'DATASETNAME'): config.Data.unitsPerJob = 4
-  elif ('TT' in 'DATASETNAME'): config.Data.unitsPerJob = 5
-  else: config.Data.unitsPerJob = 5
+  config.Data.splitting = 'Automatic'
+  #config.Data.splitting = 'FileBased'
+  #if   (('GluGlu' in 'DATASETNAME') and ('MCFM701' in 'DATASETNAME') and (not 'tau' in 'DATASETNAME')): config.Data.unitsPerJob = 1
+  #elif (('GluGlu' in 'DATASETNAME') and ('MCFM701' in 'DATASETNAME') and ('tau' in 'DATASETNAME')): config.Data.unitsPerJob = 1
+  #elif (('GluGlu' in 'DATASETNAME') and (not 'MCFM701' in 'DATASETNAME')): config.Data.unitsPerJob = 1
+  #elif ('HToZZ' in 'DATASETNAME'): config.Data.unitsPerJob = 1
+  #elif ('ZZ' in 'DATASETNAME'): config.Data.unitsPerJob = 4
+  #elif ('TT' in 'DATASETNAME'): config.Data.unitsPerJob = 5
+  #else: config.Data.unitsPerJob = 5
 
 config.Data.publication = False
-config.Data.outLFNDirBase = '/store/user/%s/UFHZZAnalysisRun2/JOBTAG/' % (getUsernameFromSiteDB())
+config.Data.outLFNDirBase = '/store/user/nimenend/UFHZZAnalysisRun2/JOBTAG/'# % (getUsernameFromSiteDB())
 config.Data.ignoreLocality = True
 config.Data.allowNonValidInputDataset = True
+config.JobType.allowUndistributedCMSSW = True
 
 config.section_('User')
 config.section_('Site')

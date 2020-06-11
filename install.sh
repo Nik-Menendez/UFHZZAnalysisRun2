@@ -14,7 +14,7 @@ cd ../../../../
 git clone https://github.com/cms-analysis/HiggsAnalysis-ZZMatrixElement.git ZZMatrixElement
 (cd ZZMatrixElement; git checkout -b from-v215 v2.1.5)
 pushd ${CMSSW_BASE}/src/ZZMatrixElement/MELA/COLLIER/
-  pkgname="collier-1.2"  
+  pkgname="collier-1.2.0"  
   pkgdir="COLLIER-1.2"
   tarname=$pkgname".tar.gz"
   tarweb="https://www.hepforge.org/archive/collier/"$tarname
