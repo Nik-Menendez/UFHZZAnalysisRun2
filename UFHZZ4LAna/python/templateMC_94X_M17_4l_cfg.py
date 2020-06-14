@@ -245,11 +245,11 @@ process.myGenerator = cms.EDProducer("GenParticles2HepMCConverter",
     genEventInfo = cms.InputTag("generator"),
     signalParticlePdgIds = cms.vint32(25)
 )
-process.rivetProducerHTXS = cms.EDProducer('HTXSRivetProducer',
-  HepMCCollection = cms.InputTag('myGenerator','unsmeared'),
-  LHERunInfo = cms.InputTag('externalLHEProducer'),
-  ProductionMode = cms.string('AUTO'),
-)
+#process.rivetProducerHTXS = cms.EDProducer('HTXSRivetProducer',
+#  HepMCCollection = cms.InputTag('myGenerator','unsmeared'),
+#  LHERunInfo = cms.InputTag('externalLHEProducer'),
+#  ProductionMode = cms.string('AUTO'),
+#)
 # HZZ Fiducial from RIVET
 process.rivetProducerHZZFid = cms.EDProducer('HZZRivetProducer',
   HepMCCollection = cms.InputTag('myGenerator','unsmeared'),
@@ -334,6 +334,6 @@ process.p = cms.Path(process.fsrPhotonSequence*
                      process.slimmedJetsAK8JEC*
                      process.fullPatMetSequence*
                      process.corrJets*
-                     process.mergedGenParticles*process.myGenerator*process.rivetProducerHTXS*#process.rivetProducerHZZFid*
+                     #process.mergedGenParticles*process.myGenerator*process.rivetProducerHTXS*#process.rivetProducerHZZFid*
                      process.Ana
                      )

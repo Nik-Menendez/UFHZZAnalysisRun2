@@ -72,7 +72,7 @@
 #include "SimDataFormats/GeneratorProducts/interface/HepMCProduct.h"
 
 //HTXS
-#include "SimDataFormats/HTXS/interface/HiggsTemplateCrossSections.h"
+//#include "SimDataFormats/HTXS/interface/HiggsTemplateCrossSections.h"
 //#include "SimDataFormats/HZZFiducial/interface/HZZFiducialVolume.h"
 
 // PAT
@@ -522,7 +522,7 @@ private:
     edm::EDGetTokenT<GenEventInfoProduct> generatorSrc_;
     edm::EDGetTokenT<LHEEventProduct> lheInfoSrc_;
     edm::EDGetTokenT<LHERunInfoProduct> lheRunInfoToken_;
-    edm::EDGetTokenT<HTXS::HiggsClassification> htxsSrc_;
+    //edm::EDGetTokenT<HTXS::HiggsClassification> htxsSrc_;
     //edm::EDGetTokenT<HZZFid::FiducialSummary> fidRivetSrc_;
 
     // Configuration
@@ -867,14 +867,14 @@ UFHZZ4LAna::analyze(const edm::Event& iEvent, const edm::EventSetup& iSetup)
     iEvent.getByToken(lheInfoSrc_, lheInfo);
 
     // STXS info    
-    if (isMC) {
-        edm::Handle<HTXS::HiggsClassification> htxs;
-        iEvent.getByToken(htxsSrc_,htxs);
-        stage0cat = htxs->stage0_cat;
-        stage1cat = htxs->stage1_cat_pTjet30GeV;
-        //stage1p1cat = htxs->stage1p1_cat;
-        if (verbose) cout<<"stage1cat "<<stage1cat<<endl;
-    }
+    //if (isMC) {
+    //    edm::Handle<HTXS::HiggsClassification> htxs;
+    //    iEvent.getByToken(htxsSrc_,htxs);
+    //    stage0cat = htxs->stage0_cat;
+    //    stage1cat = htxs->stage1_cat_pTjet30GeV;
+    //    //stage1p1cat = htxs->stage1p1_cat;
+    //    if (verbose) cout<<"stage1cat "<<stage1cat<<endl;
+    //}
 
     // Fiducial Rivet
     /*
