@@ -314,8 +314,8 @@ process.Ana = cms.EDAnalyzer('UFHZZ4LAna',
                                   'HLT_TripleMu_12_10_5_v',
                               ),
                               verbose = cms.untracked.bool(False),              
-                              skimLooseLeptons = cms.untracked.int32(4),              
-                              skimTightLeptons = cms.untracked.int32(4),              
+                              skimLooseLeptons = cms.untracked.int32(3),              
+                              skimTightLeptons = cms.untracked.int32(2),              
 #                              verbose = cms.untracked.bool(True)              
                              )
 
